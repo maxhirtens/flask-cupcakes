@@ -5,13 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cupcake API</title>
+    <link rel="stylesheet" href="/static/app.css" />
   </head>
   <body>
-    <h1>Cupcake List</h1>
+    <h2>Cupcake List</h2>
     <p>
-      {% for cupcake in cupcakes %}
-      <li>{{cupcake.flavor}} {{cupcake.size}}</li>
-      {% endfor %}
+      <button class="get-cupcake-btn">View Current Inventory</button>
     </p>
+
+    <ul class="cupcake-list"></ul>
+    <p>
+      <br />
+    </p>
+
+    <h2>Add a Cupcake</h2>
+    <form class="add-cupcake-form" action="/api/cupcakes" method="POST">
+      <label for="flavor">Flavor:</label>
+      <input type="text" name="flavor" id="flavor" />
+      <label for="size">Size:</label>
+      <input type="text" name="size" id="size" />
+      <label for="rating">Rating:</label>
+      <input type="text" name="rating" id="rating" />
+      <label for="image">Image:</label>
+      <input type="text" name="image" id="image" />
+      <button class="add-cupcake-btn">Submit</button>
+    </form>
   </body>
 </html>
+<script src="http://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+<script src="/static/app.js"></script>
